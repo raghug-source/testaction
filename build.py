@@ -16,4 +16,5 @@ connection = {
 
 my_jobs = Jobs(connection)
 result = my_jobs.submit_from_mainframe('RGOPALK.JCL.CNTL(RUN)')
-print(result)
+rc = my_jobs.get_job_status(result['jobname'],result['jobid'])
+print(rc)
