@@ -3,7 +3,7 @@
 name: CI
 inputs:
   zowe_host:
-    description: host name
+    description: MF host name
     required: true
   zowe_port:
     description: port number
