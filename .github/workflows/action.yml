@@ -31,5 +31,6 @@ jobs:
         with:
           python-version: '3.8'   
       - name: Check version of Python
-        run: python --version
+        run: |
+            pip install zowe
       
