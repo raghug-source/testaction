@@ -34,5 +34,7 @@ jobs:
         run: npm install 
       - name: create zowe profile
         run: zowe profiles create zosmf-profile cibuild --host "${{secrets.ZOWE_HOST}}" --port "${{secrets.ZOWE_PORT}}" --user "${{secrets.ZOWE_USERID}}" --password "${{secrets.ZOWE_PASSWORD}}" --reject-unauthorized false
+      - name: install zowe
+        run: pip install zowe
       - name: Run Python script
         run: python build.py
