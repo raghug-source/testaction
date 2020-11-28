@@ -1,5 +1,8 @@
 import os
 import sys
-command = "zowe zos-jobs submit data-set 'RGOPALK.JCL.CNTL(WHELLO)' --view-all-spool-content"
-#command = "zowe --version"
-os.system(command)
+from zowe.zos_jobs_for_zowe_sdk import Jobs
+print sys.argv[1]
+print sys.argv[2]
+print sys.argv[3]
+print sys.argv[4]
+
