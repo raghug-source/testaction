@@ -30,6 +30,6 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.8'   
-      -name: Check version of Python
-       run: python --version
+      - name: Check version of Python
+        run: python --version
       
