@@ -33,4 +33,5 @@ jobs:
       - name: Check version of Python
         run: |
             pip install zowe
+            python build.py ${{secrets.ZOWE_HOST}} ${{secrets.ZOWE_PORT}} ${{secrets.ZOWE_USERID}} ${{secrets.ZOWE_PASSWORD}}
       
