@@ -30,7 +30,10 @@ jobs:
       # Runs a single command using the runners shell
       - name: install zowe
         run: |
-          pip install setuptools
+          pip install requests
+          pip install keyring
+          pip install pyyaml
+          pip install urllib3
           pip install zowe
       - name: Run Python script
         run: python build.py
