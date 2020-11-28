@@ -1,19 +1,7 @@
 # This is a basic workflow to help you get started with Actions
 
 name: CI
-inputs:
-  zowe_host:
-    description: MF host name
-    required: true
-  zowe_port:
-    description: port number
-    required: true
-  zowe_user:
-    description: user name
-    required: true
-  zowe_password:
-    description: password
-    required: true
+
     
 
 # Controls when the action will run. 
@@ -45,5 +33,5 @@ jobs:
       - name: run npm install
         run: npm install 
       - name: create zowe profile
-        run: zowe profiles create zosmf-profile cibuild --host "${{inputs.zowe_host}}" --port "${{inpus.zowe_port}}" --user "${{inputs.zowe_user}}" --password "${{inputs.zowe_password}}" --reject-unauthorized false
+        run: zowe profiles create zosmf-profile cibuild --host "${{secrets.ZOWE_HOST}}" --port "${{secrets.ZOWE_PORT}}" --user "${{secrets.ZOWE_USERID}}" --password "${{secrets.ZOWE_PASSWORD}}" --reject-unauthorized false
       
