@@ -27,7 +27,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.8'   
-      - name: Check version of Python
+      - name: Copy and Build
         run: |
             pip install zowe
             python build.py ${{secrets.ZOWE_HOST}} ${{secrets.ZOWE_PORT}} ${{secrets.ZOWE_USERID}} ${{secrets.ZOWE_PASSWORD}}
