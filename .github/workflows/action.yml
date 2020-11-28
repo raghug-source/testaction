@@ -26,8 +26,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - with:
-          python-version: 3.8
       - name: Check Python version  
         run: python --version
       
