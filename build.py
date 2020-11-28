@@ -29,8 +29,11 @@ for folder in folders:
             for file in os.listdir(path):
                 memname = file.split('.')[0]
                 localfile = './' + folder + '/' + file
+                print(localfile)
                 pdsname = 'RGOPALK.RAG.' + pdstype + '(' + memname + ')'
-                my_files.upload_file_to_dsn(localfile,pdsname)
+                print(pdsname)
+                rc = my_files.upload_file_to_dsn(localfile,pdsname)
+                print(rc)
 ##########################################################################
 # my_jobs = Jobs(connection)
 # result = my_jobs.submit_from_mainframe('RGOPALK.JCL.CNTL(RUN)')
