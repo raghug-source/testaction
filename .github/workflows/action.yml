@@ -30,4 +30,6 @@ jobs:
         run: sudo npm i -g @zowe/cli@latest --@zowe:registry=https://registry.npmjs.org --no-package-lock --force --ignore-scripts
       - name: run npm install
         run: npm install 
+      - name: create zowe profile
+        run: zowe profiles create zosmf-profile cibuild --host $zowe_host --port $zowe_port --user $zowe_user --password $zowe_password --reject-unauthorized false
       
