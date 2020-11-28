@@ -29,6 +29,8 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: install zowe
-        run: pip install zowe
+        run: |
+          pip3 --upgrade setuptools
+          pip install zowe
       - name: Run Python script
         run: python build.py
