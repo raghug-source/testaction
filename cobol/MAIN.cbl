@@ -6,7 +6,7 @@
        COPY STUDCPY.                              
       PROCEDURE DIVISION.                           
       CALL 'UTIL' USING BY CONTENT FS-STUDENT-ID
-                BY CONTENT FS-STUDENT-NAME.   
+                BY CONTENT WS-STUDENT-NAME.   
       DISPLAY 'STUDENT FID:' WS-STUDENT-ID       
       DISPLAY 'STUDENT-FNAME:' WS-STUDENT-NAME   
       STOP RUN.                                 
