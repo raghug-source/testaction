@@ -7,6 +7,6 @@
       PROCEDURE DIVISION.                           
       CALL 'UTIL' USING BY CONTENT WS-STUDENT-ID
                 BY CONTENT WS-STUDENT-NAME.   
-      DISPLAY 'STUDENT WID:' WS-STUDENT-ID       
-      DISPLAY 'STUDENT-WNAME:' WS-STUDENT-NAME   
+      DISPLAY 'STUDENT FID:' WS-STUDENT-ID       
+      DISPLAY 'STUDENT-FNAME:' WS-STUDENT-NAME   
       STOP RUN.                                 
