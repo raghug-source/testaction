@@ -23,12 +23,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Setup python 3.8
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'   
-      - name: Copy and Build
-        run: |
-            pip install zowe
-            python build.py ${{secrets.ZOWE_HOST}} ${{secrets.ZOWE_PORT}} ${{secrets.ZOWE_USERID}} ${{secrets.ZOWE_PASSWORD}}
+      - name: Install zowe CLI       
+        run: sudo npm i -g @zowe/cli@latest --@zowe:registry=https://registry.npmjs.org --no-package-lock --force --ignore-scripts
+      - name: Run np install 
+        run: npm install
+      - name: create zowe profile
+        run: zowe profiles create zosmf-profile cibuild --host "${{secrets.ZOWE_HOST}}" --port "${{secrets.ZOWE_PORT}}" --user "${{secrets.ZOWE_USERID}}" --password "${{secrets.ZOWE_PASSWORD}}" --reject-unauthorized false
+      - name: run sh on remote
+        run: zowe zos-uss issue ssh /u/RGOPALK/runbuild.sh
+    
+    
+            
       
