@@ -29,8 +29,8 @@ jobs:
         run: npm install
       - name: create zowe profile
         run: zowe profiles create zosmf-profile cibuild --host "${{secrets.ZOWE_HOST}}" --port "${{secrets.ZOWE_PORT}}" --user "${{secrets.ZOWE_USERID}}" --password "${{secrets.ZOWE_PASSWORD}}" --reject-unauthorized false
-      - name: run shell script
-        run: zowe zos-uss issue ssh /u/RGOPALK/runbuild.sh --host "${{secrets.ZOWE_HOST}}" --port "${{secrets.ZOWE_PORT}}" --user "${{secrets.ZOWE_USERID}}" --password "${{secrets.ZOWE_PASSWORD}}"
+      - name: run python script
+        run: python build.py
     
     
             
