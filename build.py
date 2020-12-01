@@ -12,6 +12,6 @@ process = Popen(
         stdout=PIPE,
         shell=True
     )
-print(process.communicate[0])
+print(process.communicate()[0])
 
 
