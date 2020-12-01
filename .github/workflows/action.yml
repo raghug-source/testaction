@@ -30,7 +30,7 @@ jobs:
       - name: create zowe profile
         run: zowe profiles create ssh-profile ragprofile --host "${{secrets.ZOWE_HOST}}" --port 22 --user "${{secrets.ZOWE_USERID}}" --password "${{secrets.ZOWE_PASSWORD}}"
       - name: Run zowe cli command
-        run: zowe zos-uss issue ssh '/usr/lpp/IBM/dbb/bin/groovyz /u/RGOPALK/zappbuild/origbuild.groovy --workspace /u/RGOPALK/zappbuild --application sampleapp --outDir /u/RGOPALK/zappbuild/out --hlq RGOPALK.RAG --fullBuild'--ssh-profile ragprofile 
+        run: zowe zos-uss issue ssh '/usr/lpp/IBM/dbb/bin/groovyz /u/RGOPALK/zappbuild/origbuild.groovy --workspace /u/RGOPALK/zappbuild --application sampleapp --outDir /u/RGOPALK/zappbuild/out --hlq RGOPALK.RAG --fullBuild'--host "${{secrets.ZOWE_HOST}}" --port 22 --user "${{secrets.ZOWE_USERID}}" --password "${{secrets.ZOWE_PASSWORD}}" 
       
       
     
