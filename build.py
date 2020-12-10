@@ -1,5 +1,5 @@
 # import os
-# import sys
+import sys
 # from subprocess import PIPE, Popen
 import paramiko
 hostname = sys.argv[1]
