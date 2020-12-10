@@ -10,7 +10,7 @@ pwd = sys.argv[4]
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh.connect(hostname,username=userid, password=pwd)
-cmd_to_execute = 'cd /u/RGOPALK;ls'
+cmd_to_execute = 'cd /u/RGOPALK/zappbuild;git clone --branch feature2 git@github.com:raghug-source/testaction.git;/usr/lpp/IBM/dbb/bin/groovyz /u/RGOPALK/zappbuild/origbuild.groovy --workspace /u/RGOPALK/zappbuild --application testaction --outDir /u/RGOPALK/zappbuild/out --hlq RGOPALK.RAG --fullBuild'
 ssh_stdin, ssh_stdout, ssh_stderr = ssh.exec_command(cmd_to_execute)
 print(ssh_stdout.read())
 
