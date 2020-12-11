@@ -27,12 +27,7 @@ jobs:
         run: pip install paramiko
       - name: Run Build
         run: python build.py ${{secrets.ZOWE_HOST}} ${{secrets.ZOWE_PORT}} ${{secrets.ZOWE_USERID}} ${{secrets.ZOWE_PASSWORD}}
-      - name: Run Deploy
-        run: ansible-playbook hello-world.yml -i mfconn.yml
-        env:
-            hostport: ${{secrets.ZOWE_PORT}}
-            hostuserid: ${{secrets.ZOWE_USERID}}
-            hostpassword: ${{secrets.ZOWE_PASSWORD}}
+      
     
             
       
