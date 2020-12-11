@@ -28,7 +28,7 @@ jobs:
      # - name: Run Build
      #   run: python build.py ${{secrets.ZOWE_HOST}} ${{secrets.ZOWE_PORT}} ${{secrets.ZOWE_USERID}} ${{secrets.ZOWE_PASSWORD}}
       - name: Check Ansible version
-        run: nsible-playbook hello-world.yml -i mfconn.yml
+        run: ansible-playbook hello-world.yml -i mfconn.yml
     
             
       
