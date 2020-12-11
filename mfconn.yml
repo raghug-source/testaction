@@ -1,7 +1,7 @@
 zsystem:
   hosts:
     192.86.33.143:
-      ansible_port: "{{ hostport }}"
-      ansible_user: "{{ hostuser }}"
-      ansible_password: "{{ hostpassword }}"
+      ansible_port: "{{ lookup('env', 'hostport') }}"
+      ansible_user: "{{ lookup('env', 'hostuser') }}"
+      ansible_password: "{{ lookup('env', 'hostpassword') }}"
       ansible_ssh_pipelining: true
