@@ -1,7 +1,7 @@
 zsystem:
   hosts:
-    xx.xx.xx.xxx:
+    192.86.33.143:
       ansible_port: 22
-      ansible_user: 
-      ansible_password: 
+      ansible_user: ${{ secrets.ZOWE_USERID }}
+      ansible_password: ${{ secrets.ZOWE_PASSWORD }}
       ansible_ssh_pipelining: true
