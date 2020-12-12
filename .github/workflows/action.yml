@@ -33,6 +33,7 @@ jobs:
          LARGE_SECRET: ${{ secrets.LARGE_SECRET }}
       - name: Deploy
         run: |
+           ansible-galaxy collection install ibm.ibm_zos_core
            export ANSIBLE_HOST_KEY_CHECKING=False
            ansible-playbook hello-world.yml -i mfs.yml --vault-password-file $HOME/a_password_file.txt
     
