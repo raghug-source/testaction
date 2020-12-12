@@ -6,6 +6,9 @@
     gather_facts: no
 
     tasks:
-      - name: Pinging host - {{ inventory_hostname }}
-        ping:
+      - name: Copy LMODs
+        zos_copy:
+          src: RGOPALK.RAG.LOAD(SAM*)
+          dest: RGOPALK.RAG.TEST.LOAD
+          remote_src: true
 
