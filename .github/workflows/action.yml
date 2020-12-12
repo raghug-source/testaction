@@ -28,11 +28,11 @@ jobs:
      # - name: Run Build
      #   run: python build.py ${{secrets.ZOWE_HOST}} ${{secrets.ZOWE_PORT}} ${{secrets.ZOWE_USERID}} ${{secrets.ZOWE_PASSWORD}}
       - name: Run Decryption
-        run: gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET" --output $HOME/secrets/a_password_file.txt a_password_file.txt.gpg
+        run: gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET" --output $HOME/a_password_file.txt a_password_file.txt.gpg
         env:
          LARGE_SECRET: ${{ secrets.LARGE_SECRET }}
       - name: Check Ansible version
-        run: ansible-playbook hello-world.yml -i mfs.yml --vault-password-file $HOME/secrets/a_password_file.txt
+        run: ansible-playbook hello-world.yml -i mfs.yml --vault-password-file $HOME/a_password_file.txt
     
             
       
