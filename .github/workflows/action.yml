@@ -25,8 +25,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install Dependencies
         run: pip install paramiko
-     # - name: Run Build
-     #   run: python build.py ${{secrets.ZOWE_HOST}} ${{secrets.ZOWE_PORT}} ${{secrets.ZOWE_USERID}} ${{secrets.ZOWE_PASSWORD}}
+      - name: Run Build
+        run: python build.py ${{secrets.ZOWE_HOST}} ${{secrets.ZOWE_PORT}} ${{secrets.ZOWE_USERID}} ${{secrets.ZOWE_PASSWORD}}
       - name: Run Decryption
         run: gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET" --output $HOME/a_password_file.txt a_password_file.txt.gpg
         env:
