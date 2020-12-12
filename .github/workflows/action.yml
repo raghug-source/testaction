@@ -31,8 +31,10 @@ jobs:
         run: gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET" --output $HOME/a_password_file.txt a_password_file.txt.gpg
         env:
          LARGE_SECRET: ${{ secrets.LARGE_SECRET }}
-      - name: Check Ansible version
-        run: ansible-playbook hello-world.yml -i mfs.yml --vault-password-file $HOME/a_password_file.txt
+      - name: Deploy
+        run: |
+           export ANSIBLE_HOST_KEY_CHECKING=False
+           ansible-playbook hello-world.yml -i mfs.yml --vault-password-file $HOME/a_password_file.txt
     
             
       
