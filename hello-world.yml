@@ -4,6 +4,8 @@
         ansible_python_interpreter: /usr/lpp/IBM/izoda/anaconda/bin/python3
         remote_user: ${{ secrets.ZOWE_USERID }}
     gather_facts: no
+    collections:
+      - ibm.ibm_zos_core
 
     tasks:
       - name: Copy LMODs
