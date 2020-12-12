@@ -2,15 +2,27 @@
   - hosts: zsystem
     vars:
         ansible_python_interpreter: /usr/lpp/IBM/izoda/anaconda/bin/python3
-        remote_user: ${{ secrets.ZOWE_USERID }}
+        tgt_tmp_dir: "/tmp"
+        ctl_tmp_dir: "/tmp"
+    remote_user: rgopalk
     gather_facts: no
+
+    environment:
+      ZOAU_HOME: /usr/lpp/IBM/zoautil
+      ZOAU_ROOT: /usr/lpp/IBM/zoautil
+      PATH: /usr/lpp/IBM/zoautil/bin:/usr/lpp/IBM/izoda/anaconda/bin:/bin
+      LIBPATH: /usr/lpp/IBM/zoautil/lib:/usr/lpp/IBM/izoda/anaconda/lib:/lib:/usr/lib:.
+      PYTHONPATH: /usr/lpp/IBM/zoautil/lib
+      _BPXK_AUTOCVT: "ON"
+    
     collections:
       - ibm.ibm_zos_core
 
     tasks:
-      - name: Copy LMODs
-        zos_copy:
-          src: RGOPALK.RAG.LOAD(SAM*)
-          dest: RGOPALK.RAG.TEST.LOAD
+      - name: "Copy LMODs"
+        ibm.ibm_zos_core.zos_copy:
+          src: "RGOPALK.RAG.LOAD(SAM*)"
+          dest: "RGOPALK.RAG.TEST.LOAD"
           remote_src: true
+          ignore_sftp_stderr: true
 
