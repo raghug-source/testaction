@@ -8,7 +8,7 @@
       ****************************************************************
       * PROGRAM:  SAM1
       *
-      * AUTHOR :  Douggie Stout
+      * AUTHOR :  Doug Stout
       *
       * READS A SEQUENTIAL TRANSACTION FILE AND MAKES UPDATES
       * TO A SORTED SEQUENTIAL CUSTOMER FILE
@@ -37,7 +37,7 @@
        PROGRAM-ID. SAM1.
        ENVIRONMENT DIVISION.
        INPUT-OUTPUT SECTION.
-       :ILE-CONTROL.
+       FILE-CONTROL.
 
            SELECT CUSTOMER-FILE ASSIGN TO CUSTFILE
                ACCESS IS SEQUENTIAL
